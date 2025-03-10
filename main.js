@@ -23,25 +23,33 @@ const chartConfig = {
         label: 'Solar Production',
         data: [],
         borderColor: 'rgb(255, 205, 86)',
-        tension: 0.1
+        tension: 0.1,
+        pointRadius: 0,
+        pointHoverRadius: 0
       },
       {
         label: 'Grid Import',
         data: [],
         borderColor: 'rgb(255, 99, 132)',
-        tension: 0.1
+        tension: 0.1,
+        pointRadius: 0,
+        pointHoverRadius: 0
       },
       {
         label: 'Grid Export',
         data: [],
         borderColor: 'rgb(54, 162, 235)',
-        tension: 0.1
+        tension: 0.1,
+        pointRadius: 0,
+        pointHoverRadius: 0
       },
       {
         label: 'Charging Rate',
         data: [],
         borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
+        tension: 0.1,
+        pointRadius: 0,
+        pointHoverRadius: 0
       }
     ]
   },
