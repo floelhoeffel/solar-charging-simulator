@@ -61,14 +61,35 @@ const chartConfig = {
         beginAtZero: true,
         title: {
           display: true,
-          text: 'Power (kW)'
+          text: 'Power (kW)',
+          color: 'var(--text-color)'
         },
-        suggestedMax: 11
+        suggestedMax: 11,
+        grid: {
+          color: 'var(--border-color)'
+        },
+        ticks: {
+          color: 'var(--text-color)'
+        }
       },
       x: {
         title: {
           display: true,
-          text: 'Time'
+          text: 'Time',
+          color: 'var(--text-color)'
+        },
+        grid: {
+          color: 'var(--border-color)'
+        },
+        ticks: {
+          color: 'var(--text-color)'
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: 'var(--text-color)'
         }
       }
     }
@@ -94,7 +115,13 @@ const pieChartConfig = {
     plugins: {
       title: {
         display: true,
-        text: 'Energy Source Breakdown'
+        text: 'Energy Source Breakdown',
+        color: 'var(--text-color)'
+      },
+      legend: {
+        labels: {
+          color: 'var(--text-color)'
+        }
       }
     }
   }
@@ -130,21 +157,40 @@ const energyBarConfig = {
     maintainAspectRatio: false,
     scales: {
       x: {
-        stacked: true
+        stacked: true,
+        grid: {
+          color: 'var(--border-color)'
+        },
+        ticks: {
+          color: 'var(--text-color)'
+        }
       },
       y: {
         stacked: true,
         title: {
           display: true,
-          text: 'Energy (kWh)'
+          text: 'Energy (kWh)',
+          color: 'var(--text-color)'
         },
-        suggestedMax: 5
+        suggestedMax: 5,
+        grid: {
+          color: 'var(--border-color)'
+        },
+        ticks: {
+          color: 'var(--text-color)'
+        }
       }
     },
     plugins: {
       title: {
         display: true,
-        text: 'Energy Source Breakdown'
+        text: 'Energy Source Breakdown',
+        color: 'var(--text-color)'
+      },
+      legend: {
+        labels: {
+          color: 'var(--text-color)'
+        }
       }
     }
   }
@@ -180,21 +226,40 @@ const costBarConfig = {
     maintainAspectRatio: false,
     scales: {
       x: {
-        stacked: true
+        stacked: true,
+        grid: {
+          color: 'var(--border-color)'
+        },
+        ticks: {
+          color: 'var(--text-color)'
+        }
       },
       y: {
         stacked: true,
         title: {
           display: true,
-          text: 'Cost (€)'
+          text: 'Cost (€)',
+          color: 'var(--text-color)'
         },
-        suggestedMax: 2
+        suggestedMax: 2,
+        grid: {
+          color: 'var(--border-color)'
+        },
+        ticks: {
+          color: 'var(--text-color)'
+        }
       }
     },
     plugins: {
       title: {
         display: true,
-        text: 'Cost Breakdown'
+        text: 'Cost Breakdown',
+        color: 'var(--text-color)'
+      },
+      legend: {
+        labels: {
+          color: 'var(--text-color)'
+        }
       }
     }
   }
@@ -481,4 +546,16 @@ inputs.forEach(input => {
 });
 
 // Initial simulation
-simulateCharging(); 
+simulateCharging();
+
+// Add theme change listener to update charts
+document.body.addEventListener('themeChanged', () => {
+  enodeChart.update();
+  realtimeChart.update();
+  enodePieChart.update();
+  realtimePieChart.update();
+  enodeEnergyBarChart.update();
+  realtimeEnergyBarChart.update();
+  enodeCostBarChart.update();
+  realtimeCostBarChart.update();
+}); 
